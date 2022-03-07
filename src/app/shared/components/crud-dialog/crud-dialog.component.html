@@ -1,0 +1,23 @@
+<h1 *ngIf="!isChange" mat-dialog-title>Criar Curso</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Editar Curso</h1>
+<form [formGroup]="courseForm">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Curso</mat-label>
+      <input matInput formControlName="name" name="name" placeholder="Ex.: Java EE">
+      <mat-hint>Informe o nome do curso</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Categoria</mat-label>
+      <input matInput formControlName="category" name="category" placeholder="Ex.: Baisc">
+      <mat-hint>Informe a categoria do curso</mat-hint>
+    </mat-form-field>
+  </p>
+</form>
+<div mat-dialog-actions>
+  <button *ngIf="!isChange" mat-raised-button color="primary" (click)="addCourse()">Criar</button>
+  <button *ngIf="isChange" mat-raised-button color="primary" (click)="addCourse()">Editar</button>
+  <button mat-button (click)="onCancel(null)">Cancelar</button>
+</div>

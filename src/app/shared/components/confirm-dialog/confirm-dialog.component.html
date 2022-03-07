@@ -1,0 +1,6 @@
+<h1 mat-dialog-title style="color: red;">Excluir</h1>
+<div mat-dialog-content>Confirmar exclusão do curso {{data.name}}?</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close (click)="confirmarExclusao(data._id)">Sim</button>
+  <button mat-button mat-dialog-close (click)="cancelarExclusao(null)">Não</button>
+</div>
