@@ -1,3 +1,4 @@
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,8 @@ import { CoursesComponent } from './courses/courses.component';
     SharedModule,
     AppMaterialModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ]
 })
 export class CoursesModule { }
