@@ -1,3 +1,4 @@
+import { DateAdapter } from '@angular/material/core';
 import { ConfirmDialogComponent } from './../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
 import { Course } from './../model/course';
@@ -16,11 +17,12 @@ export class CoursesComponent implements OnInit {
 
   course!: Course;
   courses$: Observable<Course[]>;
-  displayedColumns = ['name', 'category', 'action'];
+  displayedColumns = ['name', 'category', 'dataInicio', 'dataFim', 'action'];
 
   constructor(
       private courseServices: CoursesService,
-      public dialog: MatDialog
+      public dialog: MatDialog,
+      private dateFormat: DateAdapter<Date>
     ) {
     this.courses$ = this.courseServices.list()
     .pipe(
@@ -70,7 +72,7 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.dateFormat.setLocale('en-GB');
   }
 
 }

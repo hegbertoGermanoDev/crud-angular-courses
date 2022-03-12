@@ -2,7 +2,7 @@
 <h1 *ngIf="isChange" mat-dialog-title>Editar Curso</h1>
 <form [formGroup]="courseForm">
   <p>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="standard">
       <mat-label>Curso</mat-label>
       <input matInput formControlName="name" name="name" placeholder="Ex.: Java EE">
       <mat-hint>Informe o nome do curso</mat-hint>
@@ -13,6 +13,27 @@
       <mat-label>Categoria</mat-label>
       <input matInput formControlName="category" name="category" placeholder="Ex.: Baisc">
       <mat-hint>Informe a categoria do curso</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <app-datepicker formControlName="dataInicio" name="dataInicio"></app-datepicker>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Data Início</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="dataInicio" name="dataInicio" placeholder="01/01/2022">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-hint>Informe a data inicial do curso</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Data Fim</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="dataFim" name="dataFim" placeholder="31/12/2022">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <mat-hint>Informe a data final do curso</mat-hint>
     </mat-form-field>
   </p>
 </form>

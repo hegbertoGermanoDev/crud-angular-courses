@@ -25,6 +25,18 @@
       <td mat-cell *matCellDef="let course"> {{course.category}} </td>
     </ng-container>
 
+    <!-- Data Inicio Column -->
+    <ng-container matColumnDef="dataInicio">
+      <th mat-header-cell *matHeaderCellDef> Data Início </th>
+      <td mat-cell *matCellDef="let course"> {{course.dataInicio | date: 'dd-MM-yyyy'}} </td>
+    </ng-container>
+
+    <!-- Data Fim Column -->
+    <ng-container matColumnDef="dataFim">
+      <th mat-header-cell *matHeaderCellDef> Data Fim </th>
+      <td mat-cell *matCellDef="let course"> {{course.dataFim | date: 'dd-MM-yyyy'}} </td>
+    </ng-container>
+
     <!-- Action Column -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Ações </th>

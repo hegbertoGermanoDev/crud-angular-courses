@@ -3,6 +3,7 @@ import { CoursesService } from './../../../courses/services/courses.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-crud-dialog',
@@ -20,23 +21,29 @@ export class CrudDialogComponent implements OnInit {
     public data: Course,
     private fb: FormBuilder,
     private courseService: CoursesService,
-    public dialogRef: MatDialogRef<CrudDialogComponent>
+    public dialogRef: MatDialogRef<CrudDialogComponent>,
+    private dateFormat: DateAdapter<Date>
   ) { }
 
   ngOnInit(): void {
     if (this.data != null) {
       this.courseForm = this.fb.group({
         name: [this.data.name, [Validators.required]],
-        category: [this.data.category, [Validators.required]]
+        category: [this.data.category, [Validators.required]],
+        dataInicio: [this.data.dataInicio, [Validators.required]],
+        dataFim: [this.data.dataFim, [Validators.required]]
       });
       this.isChange = true;
     } else {
       this.courseForm = this.fb.group({
         name: ['', [Validators.required]],
-        category: ['', [Validators.required]]
+        category: ['', [Validators.required]],
+        dataInicio: ['', [Validators.required]],
+        dataFim: ['', [Validators.required]]
       });
       this.isChange = false;
     }
+    this.dateFormat.setLocale('en-GB');
   }
 
   addCourse(): void {
