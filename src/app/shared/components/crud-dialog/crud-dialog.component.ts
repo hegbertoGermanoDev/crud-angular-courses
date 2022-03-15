@@ -50,6 +50,8 @@ export class CrudDialogComponent implements OnInit {
     if (this.data != null) {
       this.data.name = this.courseForm.value.name;
       this.data.category = this.courseForm.value.category;
+      this.data.dataInicio = this.courseForm.value.dataInicio;
+      this.data.dataFim = this.courseForm.value.dataFim;
       this.dialogRef.close(this.courseService.update(this.data).subscribe(result => {}));
     } else {
       this.dialogRef.close(this.courseService.insert(this.courseForm.value).subscribe(result => {}));
