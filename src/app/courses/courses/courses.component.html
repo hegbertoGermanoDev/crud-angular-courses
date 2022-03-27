@@ -3,12 +3,20 @@
     <div>
       <mat-toolbar color="primary">Cursos Disponíveis</mat-toolbar>
     </div>
-    <div align="left">
-      <button mat-icon-button color="primary" (click)="openDialog(null)">
-        <mat-icon>add</mat-icon>
-      </button>
+    <p>
+    <div>
+        <mat-form-field>
+          <input matInput [(ngModel)]="nameCourse" name="name" placeholder="Pesquisar curso...">
+          <button mat-icon-button matSuffix color="primary" (click)="filterCourse(nameCourse)">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="openDialog(null)">
+          <mat-icon>add</mat-icon>
+        </button>
     </div>
   </div>
+
 
   <div *ngIf="courses$ | async as courses; else loading">
   <table mat-table #table [dataSource]="courses" class="mat-elevation-z8">

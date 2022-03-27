@@ -25,8 +25,13 @@ export class CoursesService {
     return this.httpClient.post<Course>(this.API, course);
   }
 
-  filter(_id: number): Observable<Course> {
-    return this.httpClient.get<Course>(this.API);
+  filter(name: string): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(`${this.API}/${name}`)
+    .pipe(
+      first(),
+      delay(500),
+      tap(courses => console.log(courses))
+    );
   }
 
   update(course: Course): Observable<Course> {

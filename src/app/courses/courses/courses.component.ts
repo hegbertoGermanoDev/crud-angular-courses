@@ -1,8 +1,9 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { DateAdapter } from '@angular/material/core';
 import { ConfirmDialogComponent } from './../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
 import { Course } from './../model/course';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,7 +18,9 @@ export class CoursesComponent implements OnInit {
 
   course!: Course;
   courses$: Observable<Course[]>;
+  nameCourse!: string;
   displayedColumns = ['name', 'category', 'dataInicio', 'dataFim', 'action'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
       private courseServices: CoursesService,
@@ -71,8 +74,14 @@ export class CoursesComponent implements OnInit {
     });
   }
 
+  filterCourse(nameCourse: string): void {
+    console.log(nameCourse);
+    this.courses$ = this.courseServices.filter(nameCourse);
+  }
+
   ngOnInit(): void {
     this.dateFormat.setLocale('en-GB');
+
   }
 
 }

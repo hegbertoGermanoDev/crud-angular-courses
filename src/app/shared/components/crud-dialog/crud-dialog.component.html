@@ -21,7 +21,7 @@
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Data Início</mat-label>
-      <input matInput [matDatepicker]="picker1" formControlName="dataInicio" name="dataInicio" placeholder="01/01/2022">
+      <input matInput [matDatepicker]="picker1" formControlName="dataInicio" name="dataInicio" placeholder="01/01/2022" mask="dd/MM/yyyy">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
       <mat-hint>Informe a data inicial do curso</mat-hint>
@@ -30,7 +30,7 @@
   <p>
     <mat-form-field appearance="standard">
       <mat-label>Data Fim</mat-label>
-      <input matInput [matDatepicker]="picker2" formControlName="dataFim" name="dataFim" placeholder="31/12/2022">
+      <input matInput [matDatepicker]="picker2" formControlName="dataFim" name="dataFim" placeholder="31/12/2022" mask="dd/MM/yyyy">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <mat-hint>Informe a data final do curso</mat-hint>

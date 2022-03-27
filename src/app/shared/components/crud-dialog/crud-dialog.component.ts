@@ -15,6 +15,11 @@ export class CrudDialogComponent implements OnInit {
   public courseForm!: FormGroup;
   public course!: Course;
   public isChange: boolean = false;
+  public mask = {
+    guide: true,
+    showMask : true,
+    mask: [/\d/, /\d/, '/', /\d/, /\d/, '/',/\d/, /\d/,/\d/, /\d/]
+  };
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
